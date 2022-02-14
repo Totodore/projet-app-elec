@@ -1,12 +1,28 @@
 #include <Arduino.h>
+#include "OledScreen.hpp"
+#include "data/logo.h"
 
-void setup() {
-  // put your setup code here, to run once:
+OledScreen screen;
+
+void setup()
+{
 	Serial.begin(9600);
+	Serial.println("Starting...");
+	Serial1.begin(9600);
+	Serial.println("Configuration ended");
+	screen.InitI2C();
+	screen.InitScreen();
+	screen.Reset();
+	screen.Display(logo);
+	screen.DisplayString(30, 71, "MyEcovillage");
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-	Serial.println("Jean LPB!");
-	delay(1000);
+void loop()
+{
+	if (Serial1.available()) {
+		Serial.write(Serial1.read());
+	}
+	if (Serial.available()) {
+		Serial1.write(Serial.read());
+	}
 }
