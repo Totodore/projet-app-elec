@@ -15,7 +15,7 @@
 #include "driverlib/pin_map.h"
 //#include "isep.h"
 #include "data/fontData.h"
-#include "./utils/Utils.hpp"
+#include "./Utils.hpp"
 #include <Arduino.h>
 #include <tgmath.h>
 
@@ -23,7 +23,7 @@ class OledScreen
 {
 
 public:
-#define PORTI2C 0 // Selection du port I2C 0, 1 ou 2
+#define PORTI2C 2 // Selection du port I2C 0, 1 ou 2
 
 #define GPIO_PB2_I2C0SCL 0x00010803
 #define GPIO_PB3_I2C0SDA 0x00010C03

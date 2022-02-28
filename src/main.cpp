@@ -1,28 +1,24 @@
 #include <Arduino.h>
-#include "OledScreen.hpp"
-#include "data/logo.h"
+#include "./Bluetooth.cpp"
+#include "./Mic.cpp"
+#include "./screen/Screen.cpp"
 
-OledScreen screen;
-
+BluetoothWorker ble
+Screen screen
+MicWorker mic
 void setup()
 {
 	Serial.begin(9600);
 	Serial.println("Starting...");
-	Serial1.begin(9600);
 	Serial.println("Configuration ended");
-	screen.InitI2C();
-	screen.InitScreen();
-	screen.Reset();
-	screen.Display(logo);
-	screen.DisplayString(30, 71, "MyEcovillage");
+	ble.init();
+	screen.init();
+	mic.init();
 }
 
 void loop()
 {
-	if (Serial1.available()) {
-		Serial.write(Serial1.read());
-	}
-	if (Serial.available()) {
-		Serial1.write(Serial.read());
-	}
+	ble.loop();
+	screen.loop();
+	mic.loop();
 }
