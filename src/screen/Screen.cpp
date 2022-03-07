@@ -1,5 +1,6 @@
 #include "./screen/OledScreen.hpp"
 #include "../data/logo.h"
+#include "BaseWorker.cpp"
 
 class Screen : public BaseWorker
 {
