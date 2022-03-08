@@ -1,11 +1,10 @@
-#ifndef SCREEN_HPP
-#define SCREEN_HPP
+#pragma once
 
 #include <vector>
 
 #include "OledScreen.hpp"
 #include "./menus/Home.hpp"
-#include "../BaseWorker.cpp"
+#include "../BaseWorker.hpp"
 #include "./Menu.hpp"
 
 class Screen : public BaseWorker
@@ -67,5 +66,3 @@ private:
 	short int currentMenu = 0;
 	short int pots[3] = {0, 0, 0};
 };
-
-#endif // SCREEN_HPP

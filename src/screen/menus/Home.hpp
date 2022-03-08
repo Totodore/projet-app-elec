@@ -1,6 +1,4 @@
-#ifndef HOME_HPP
-#define HOME_HPP
-
+#pragma once
 #include "../Menu.hpp"
 #include "../../data/logo.h"
 
@@ -20,5 +18,3 @@ public:
 		Serial.println(value);
 	}
 };
-
-#endif // HOME_HPP

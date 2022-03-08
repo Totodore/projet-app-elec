@@ -1,6 +1,6 @@
 #include <vector>
 #include "Arduino.h"
-#include "BaseWorker.cpp"
+#include "BaseWorker.hpp"
 /**
  * https://www.sgxsensortech.com/content/uploads/2016/07/MiCS-VZ-89TE-V1.0.pdf
  */

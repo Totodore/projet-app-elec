@@ -1,6 +1,5 @@
 
-#ifndef OLEDSCREEN
-#define OLEDSCREEN
+#pragma once
 
 #include <stdarg.h>
 #include <stdbool.h>
@@ -493,5 +492,3 @@ public:
 		}
 	}
 };
-
-#endif

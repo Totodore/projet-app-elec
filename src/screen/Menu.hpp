@@ -1,5 +1,4 @@
-#ifndef MENU_HPP
-#define MENU_HPP
+#pragma once
 
 #include "Screen.hpp"
 
@@ -10,4 +9,3 @@ class Menu {
 
 		virtual ~Menu() {}
 };
-#endif // MENU_HPP

@@ -27,15 +27,7 @@ void setup()
 void loop()
 {
 	ble.loop();
-	screen.loop();
 	co2.loop();
 	mic.loop();
-
-	delay(1000);
-	Serial.print("POT1: ");
-	Serial.println(analogRead(27));
-	Serial.print("POT2: ");
-	Serial.println(analogRead(28));
-	Serial.print("POT3: ");
-	Serial.println(analogRead(29));
+	screen.loop();
 }

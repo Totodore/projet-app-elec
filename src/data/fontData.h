@@ -1,6 +1,4 @@
-﻿#ifndef FONTDATA_H_INCLUDED
-#define FONTDATA_H_INCLUDED
-
+﻿#pragma once
 
 const int fontData[]={
     0x00, 0x00, 0x00, 0x00, 0x00, // (space)
@@ -105,7 +103,3 @@ const int fontData[]={
     0x08, 0x1C, 0x2A, 0x08, 0x08, // <- (ALT + 0135) ‡
     0x00, 0x00, 0x07, 0x05, 0x07  // °
 };
-
-
-
-#endif
