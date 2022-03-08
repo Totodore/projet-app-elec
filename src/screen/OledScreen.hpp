@@ -14,8 +14,8 @@
 #include "driverlib/gpio.h"
 #include "driverlib/pin_map.h"
 //#include "isep.h"
-#include "data/fontData.h"
-#include "./Utils.hpp"
+#include "../data/fontData.h"
+#include "../Utils.hpp"
 #include <Arduino.h>
 #include <tgmath.h>
 
@@ -454,7 +454,7 @@ public:
 		}
 	}
 
-	void DisplayString(int x, int y, char *s)
+	void DisplayString(int x, int y, const char *s)
 	{
 		while (*s)
 		{

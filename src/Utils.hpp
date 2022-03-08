@@ -7,4 +7,4 @@ char hexToAscii(char digH) {
     return digH > 9 ? ascii + 0x07 : ascii;
 }
 
-#endif
+#endif // UTILS

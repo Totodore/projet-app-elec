@@ -24,7 +24,7 @@ public:
 		last_time = millis();
 		int val = analogRead(pin);
 		bool high;
-		if (high = (val > 3500))
+		if ((high = (val > 3500)))
 			high_count++;
 		else if (val < 3000)
 			low_count++;
@@ -46,11 +46,11 @@ public:
 		 */
 		if (cycle >= 10)
 		{
-			int ratio = (high_count / (float)(low_count + high_count)) * 100 + 20;
+			int ratio = (high_count / (float)(low_count + high_count)) * 100 + 25;
 			int ppm = 40 * ratio - 1800;
-			Serial.print("CO2: ");
-			Serial.print(ppm);
-			Serial.println(" ppm");
+			// Serial.print("CO2: ");
+			Serial.println(ppm);
+			// Serial.println(" ppm");
 			high_count = low_count = cycle = 0;
 			is_high = false;
 		}
