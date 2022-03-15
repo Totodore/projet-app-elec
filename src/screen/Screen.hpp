@@ -17,6 +17,7 @@ public:
 		screen.InitI2C();
 		screen.InitScreen();
 		screen.Reset();
+		initPins();
 		Serial.println("Screen started");
 		addMenu(new Home());
 	}
@@ -28,7 +29,11 @@ public:
 
 	void loop()
 	{
-		menus[currentMenu]->draw(screen);
+		readPot();
+		if (menus[currentMenu]->isDirty()) {
+			menus[currentMenu]->draw(screen);
+			menus[currentMenu]->setDirty(false);
+		}
 	}
 
 	~Screen()
@@ -40,12 +45,20 @@ public:
 	}
 
 private:
+	void initPins()
+	{
+		// Pin for potentiometers
+		for (int i = 0; i < 3; i++)
+		{
+			pinMode(i + 27, INPUT);
+		}
+	}
 	void readPot()
 	{
 		for (int i = 0; i < 3; i++)
 		{
 			int val = analogRead(i + 27); // Potentiometer pins are 27, 28 and 29
-			if (val > pots[i])
+			if (val > pots[i] + 20 || val < pots[i] - 20)
 			{
 				pots[i] = val;
 				dispatchPot(i, val);
@@ -62,7 +75,7 @@ private:
 
 private:
 	OledScreen screen;
-	std::vector<Menu*> menus;
+	std::vector<Menu *> menus;
 	short int currentMenu = 0;
 	short int pots[3] = {0, 0, 0};
 };

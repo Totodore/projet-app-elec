@@ -23,8 +23,8 @@ public:
 		}
 		if (millis() - last_print_time > print_interval)
 		{
-			Serial.print("Microphone: ");
-			Serial.println(value);
+			// Serial.print("Microphone: ");
+			// Serial.println(value);
 		}
 	}
 

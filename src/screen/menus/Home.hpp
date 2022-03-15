@@ -9,6 +9,7 @@ public:
 	{
 		g.Display(logo);
 		g.DisplayString(30, 71, "MyEcovillage");
+		g.DisplayString(0, 90, pot1);
 	}
 	void onPot(int pot, int value)
 	{
@@ -17,4 +18,7 @@ public:
 		Serial.print(": ");
 		Serial.println(value);
 	}
+
+private:
+	short int pot1 = 0;
 };

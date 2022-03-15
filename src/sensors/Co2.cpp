@@ -49,7 +49,7 @@ public:
 			int ratio = (high_count / (float)(low_count + high_count)) * 100 + 25;
 			int ppm = 40 * ratio - 1800;
 			// Serial.print("CO2: ");
-			Serial.println(ppm);
+			// Serial.println(ppm);
 			// Serial.println(" ppm");
 			high_count = low_count = cycle = 0;
 			is_high = false;
