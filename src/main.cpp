@@ -3,13 +3,14 @@
 #include "./Bluetooth.cpp"
 #include "./sensors/Mic.cpp"
 #include "./screen/Screen.hpp"
-#include "./sensors/Temp.cpp"
+#include "./sensors/Temperature.hpp"
 #include "./sensors/Co2.cpp"
 
 Bluetooth ble;
 Screen screen;
 Co2 co2;
 Mic mic;
+Temperature temp;
 
 void setup()
 {
@@ -21,6 +22,7 @@ void setup()
 	ble.init();
 	mic.init();
 	co2.init();
+	temp.init();
 }
 
 void loop()
@@ -28,6 +30,6 @@ void loop()
 	ble.loop();
 	co2.loop();
 	mic.loop();
+	temp.loop();
 	screen.loop();
-	Serial.println(analogRead(26));
 }

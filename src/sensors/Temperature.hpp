@@ -1,9 +1,10 @@
-#include "BaseWorker.cpp"
+#pragma once
+#include "../BaseWorker.hpp"
 #include "Arduino.h"
 
 #include "DHT.h"
 #define DHTTYPE DHT11
-#define DHTPIN 2
+#define DHTPIN 9
 DHT dht(DHTPIN, DHTTYPE);
 
 class Temperature : public BaseWorker
@@ -13,9 +14,8 @@ public:
 	{
 		Serial.println("Starting capteur temperature...");
 		pinMode(DHTPIN, INPUT);
-        dht.begin();
+		dht.begin();
 		Serial.println("Capteur de temperature demarré");
-        
 	}
 	void loop()
 	{
@@ -25,8 +25,8 @@ public:
 
 		if (millis() - last_print_time > print_interval)
 		{
-            Serial.println("Temperature : " + String(dht.readTemperature())+" °C");
-            Serial.println("Humidité : " + String(dht.readHumidity())+" %");
+			Serial.println("Temperature : " + String(dht.readTemperature()) + " °C");
+			Serial.println("Humidité : " + String(dht.readHumidity()) + " %");
 		}
 	}
 
