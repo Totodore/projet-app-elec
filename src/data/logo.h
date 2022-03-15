@@ -1,5 +1,5 @@
-#ifndef LOGO_H
-#define LOGO_H
+#pragma once
+
 const unsigned char logo[] PROGMEM = {
     0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
     0,   0,   0,   0,   0,   0,   0,   0,   128, 192, 224, 224, 240, 248, 248,
@@ -70,5 +70,3 @@ const unsigned char logo[] PROGMEM = {
     0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
     0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
     0,   0,   0,   0};
-
-#endif

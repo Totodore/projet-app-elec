@@ -1,0 +1,11 @@
+#pragma once
+
+#include "Screen.hpp"
+
+class Menu {
+	public:
+		virtual void draw(OledScreen& g) = 0;
+		virtual void onPot(int pot, int value) = 0;
+
+		virtual ~Menu() {}
+};

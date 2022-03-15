@@ -1,6 +1,6 @@
-#include "./BaseWorker.cpp"
+#include "./BaseWorker.hpp"
 #include "Arduino.h"
-class BluetoothWorker : public BaseWorker
+class Bluetooth : public BaseWorker
 {
 public:
 	void init()
