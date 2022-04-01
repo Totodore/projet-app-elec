@@ -25,7 +25,7 @@ public:
 
 		if (millis() - last_print_time > print_interval)
 		{
-			Serial.println("Temperature : " + String(dht.readTemperature()) + " °C");
+			Serial.println("Temperature : " + String(dht.readTemperature() - 3) + " °C");
 			Serial.println("Humidité : " + String(dht.readHumidity()) + " %");
 		}
 	}
