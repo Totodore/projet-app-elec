@@ -3,6 +3,9 @@
 #include "BaseWorker.hpp"
 /**
  * https://www.sgxsensortech.com/content/uploads/2016/07/MiCS-VZ-89TE-V1.0.pdf
+ * 6 -> 3 -> 3.3v
+ * 3 -> 1 ou 2 -> GND
+ * 1 -> 6 -> 24
  */
 class Co2 : public BaseWorker
 {
@@ -49,7 +52,7 @@ public:
 			int ratio = (high_count / (float)(low_count + high_count)) * 100 + 25;
 			int ppm = 40 * ratio - 1800;
 			Serial.print("CO2: ");
-			Serial.println(ppm);
+			Serial.print(ppm);
 			Serial.println(" ppm");
 			high_count = low_count = cycle = 0;
 			is_high = false;
@@ -62,6 +65,6 @@ private:
 	bool is_high = false;
 	int cycle = 0;
 	unsigned long last_time = millis(); // Last execution time
-	static constexpr int pin = 28;			// CO2 Input pin
+	static constexpr int pin = 24;			// CO2 Input pin
 	static constexpr int interval = 10; // Interval between executions
 };
