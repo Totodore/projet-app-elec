@@ -1,3 +1,4 @@
+#pragma once
 #include "./BaseWorker.hpp"
 #include "Arduino.h"
 class Bluetooth : public BaseWorker
@@ -21,5 +22,6 @@ public:
 		{
 			Serial1.write(Serial.read());
 		}
+		// TODO: Handle communications with gateway
 	}
 };

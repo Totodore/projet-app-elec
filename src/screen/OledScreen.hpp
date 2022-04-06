@@ -1,9 +1,10 @@
-
 #pragma once
 
-#include <stdarg.h>
-#include <stdbool.h>
-#include <stdint.h>
+#include <cstdarg>
+#include <cstdbool>
+#include <cstdint>
+#include <cmath>
+
 #include "inc/hw_i2c.h"
 #include "inc/hw_memmap.h"
 #include "inc/hw_types.h"
@@ -12,7 +13,7 @@
 #include "driverlib/sysctl.h"
 #include "driverlib/gpio.h"
 #include "driverlib/pin_map.h"
-//#include "isep.h"
+
 #include "../data/fontData.h"
 #include "../Utils.hpp"
 #include <Arduino.h>
@@ -361,9 +362,33 @@ public:
 			SetColumnAddress(0);
 			for (j = 127; j >= 0; j--)
 			{
-				WriteData(p[i * 128 + j]);
+				auto &val = p[i * 128 + j];
+				WriteData(val);
+				pixelData[j][i] = val;
 			}
 		}
+	}
+	void DrawPixel(const uint8_t x, const uint8_t y, bool clear)
+	{
+		uint8_t p = floor(y / 16);
+		SetPageAddress(p);				 // 128px to 8 pages
+		SetColumnAddress(127 - x); // 128px to 128 columns (columns are inverted) 127 is the beggining of the line
+		if (clear)
+		{
+			uint8_t value = pow(2, y % 8);
+			WriteData(value);
+			pixelData[x][p] = value;
+		}
+		else
+		{
+			uint8_t &value = pixelData[x][p];
+			value |= (uint8_t)pow(2, y % 8);
+			WriteData(value);
+		}
+	}
+	void DrawPixel(const uint8_t x, const uint8_t y)
+	{
+		DrawPixel(x, y, true);
 	}
 	void Reset()
 	{
@@ -374,7 +399,10 @@ public:
 			SetPageAddress(i);
 			SetColumnAddress(0);
 			for (j = 127; j >= 0; j--)
+			{
 				WriteData(0);
+				pixelData[j][i] = {};
+			}
 		}
 	}
 
@@ -491,4 +519,7 @@ public:
 			number /= 10;
 		}
 	}
+
+private:
+	uint8_t pixelData[128][8] = {};
 };

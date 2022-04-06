@@ -1,6 +1,6 @@
 #pragma once
 
-const unsigned char logo[] PROGMEM = {
+constexpr unsigned char logo[] PROGMEM = {
     0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
     0,   0,   0,   0,   0,   0,   0,   0,   128, 192, 224, 224, 240, 248, 248,
     252, 252, 252, 254, 254, 254, 254, 254, 254, 254, 254, 254, 254, 254, 254,
