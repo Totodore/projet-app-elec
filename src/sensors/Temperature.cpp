@@ -17,8 +17,6 @@ void Temperature::loop()
 
 	if (millis() - last_print_time > print_interval)
 	{
-		// Serial.println("Temperature : " + String(dht.readTemperature() - 3) + " °C");
-		// Serial.println("Humidité : " + String(dht.readHumidity()) + " %");
 		values.push_back(dht.readTemperature() - 3);
 		humidityValues.push_back(dht.readHumidity());
 	}
