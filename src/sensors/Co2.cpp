@@ -9,8 +9,11 @@ void Co2::init()
 
 void Co2::loop()
 {
+	// We get the value of the sensor (between 0 and 4096)
 	int val = analogRead(pin);
+
 	bool high;
+	// If the value if above 3500 we are in high cycle, if it is under 3000 we are in low cycle
 	if ((high = (val > 3500)))
 		high_count++;
 	else if (val < 3000)
@@ -18,11 +21,13 @@ void Co2::loop()
 	else
 		return;
 
+	// If we pass from a low cycle to to a high cycle 
 	if (high && !is_high)
 	{
 		cycle++;
 		is_high = true;
 	}
+	// If we pass from a low cycle to a high cycle 
 	else if (!high && is_high)
 		is_high = false;
 
@@ -31,7 +36,7 @@ void Co2::loop()
 	 */
 	if (cycle >= 10)
 	{
-		// Convert from cucle to ppm with 25 as offset
+		// Convert from cycle ratio to ppm with 25 as offset
 		int ratio = (high_count / (float)(low_count + high_count)) * 100 + 25;
 		int currentPpm = 40 * ratio - 1800;
 		ppm += currentPpm;
@@ -42,10 +47,11 @@ void Co2::loop()
 		high_count = low_count = cycle = 0;
 		is_high = false;
 	}
+	// Every to sec we send the mean value
 	if (millis() - last_time >= interval)
 	{
 		last_time = millis();
 		values.push_back(ppm);
-		ppm = 0;
+		high_count = low_count = cycle = ppm = 0;
 	}
 }
