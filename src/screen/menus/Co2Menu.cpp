@@ -5,8 +5,9 @@ void Co2Menu::draw(OledScreen &g)
 	g.DisplayString(2, 54, "CO2:");
 	if (values.size() > 0)
 	{
-		g.DisplayString(85, 54, values.back());
-		g.DisplayString(110, 54, "ppm");
+		String val(values.back());
+		g.DisplayString(85, 54, val.c_str());
+		g.DisplayString(85 + val.length() * 6, 54, " ppm");
 	}
 	drawGraph(g, 0, 1500);
 	for (unsigned short int i = 0; i < values.size(); i++)

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-
 #include "screen/Menu.hpp"
 
 class Co2Menu : public Menu

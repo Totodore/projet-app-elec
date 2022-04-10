@@ -15,11 +15,11 @@ void setup()
 	Serial.begin(9600);
 	Serial.println("Starting...");
 
-	Bluetooth* ble = new Bluetooth();
-	Mic* mic = new Mic();
-	Temperature* temp = new Temperature();
-	Co2* co2 = new Co2();
-	Screen* screen = new Screen(temp, co2, mic, ble);
+	Bluetooth *ble = new Bluetooth();
+	Mic *mic = new Mic();
+	Temperature *temp = new Temperature();
+	Co2 *co2 = new Co2();
+	Screen *screen = new Screen(temp, co2, mic, ble);
 	workers.push_back(ble);
 	workers.push_back(mic);
 	workers.push_back(temp);
