@@ -16,9 +16,13 @@ public:
 	void loop();
 
 private:
-	double value = 0;
-	std::vector<u_short> buffer;
+	float value = 0;
+	float low_average = 0;
+	float high_average = 0;
+	u_short counter = 0;
+	std::vector<float> buffer;
 	u_long last_print_time = millis();
-	static constexpr int pin = 26;			 // CO2 Input pin
+	static constexpr int pin = 26;			 // Mic PIN
+	static constexpr int led_pin = 25;		 // Mic PIN
 	static constexpr int print_interval = 1000; // Interval between print
 };
