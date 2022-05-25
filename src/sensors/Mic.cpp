@@ -38,7 +38,7 @@ void Mic::loop()
 
 	if (millis() - last_print_time > print_interval)
 	{
-		// last_print_time = millis();
-		// values.push_back(value);
+		last_print_time = millis();
+		values.push_back(value);
 	}
 }
