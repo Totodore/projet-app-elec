@@ -11,10 +11,6 @@ void Temperature::init()
 }
 void Temperature::loop()
 {
-	if (millis() - last_time < interval)
-		return;
-	last_time = millis();
-
 	if (millis() - last_print_time > print_interval)
 	{
 		values.push_back(dht.readTemperature() - 3);

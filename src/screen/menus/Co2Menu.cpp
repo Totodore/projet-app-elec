@@ -25,8 +25,8 @@ void Co2Menu::onPot(int pot, int value)
 }
 void Co2Menu::onSensorValue(int value)
 {
-	Serial.print("Co2 value: ");
-	Serial.println(value);
+	// Serial.print("Co2 value: ");
+	// Serial.println(value);
 	values.push_back(value);
 	setDirty(true);
 }

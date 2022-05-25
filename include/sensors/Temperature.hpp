@@ -20,9 +20,7 @@ public:
 
 private:
 	int value = 0;
-	unsigned long last_time = millis(); // Last execution time
 	unsigned long last_print_time = millis();
 	std::vector<int> humidityValues;
-	static constexpr int interval = 500; // Interval between executions
 	static constexpr int print_interval = 1000;
 };

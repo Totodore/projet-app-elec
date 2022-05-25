@@ -30,8 +30,8 @@ void HumMenu::onPot(int pot, int value)
 }
 void HumMenu::onSensorValue(int value)
 {
-	Serial.print("Humidity value: ");
-	Serial.println(value);
+	// Serial.print("Humidity value: ");
+	// Serial.println(value);
 	values.push_back(value);
 	setDirty(true);
 }

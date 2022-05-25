@@ -36,9 +36,9 @@ void Screen::loop()
 	else if (temp->hasNewHumidityValue() && currentMenu == 2)
 		menus[currentMenu]->onSensorValue(temp->getNewHumidityValue());
 	else if (co2->hasNewValue() && currentMenu == 3)
-	{
 		menus[currentMenu]->onSensorValue(co2->getNewValue());
-	}
+	else if (mic->hasNewValue() && currentMenu == 4)
+		menus[currentMenu]->onSensorValue(mic->getNewValue());
 	if (menuChanged)
 	{
 		menuChanged = false;
