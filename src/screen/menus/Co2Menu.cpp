@@ -7,7 +7,7 @@ void Co2Menu::draw(OledScreen &g)
 	{
 		String val(values.back());
 		g.DisplayString(85, 54, val.c_str());
-		g.DisplayString(85 + val.length() * 6, 54, " ppm");
+		g.DisplayString(85 + val.length() * 6, 54, " ppm  ");
 	}
 	drawGraph(g, 0, 1500);
 	for (unsigned short int i = 0; i < values.size(); i++)
@@ -18,6 +18,11 @@ void Co2Menu::draw(OledScreen &g)
 		if (value < 0)
 			value = 0;
 		g.DrawPixel(i, value, false);
+		if (i >= 127)
+		{
+			values.clear();
+			g.Reset();
+		}
 	}
 }
 void Co2Menu::onPot(int pot, int value)
@@ -25,8 +30,9 @@ void Co2Menu::onPot(int pot, int value)
 }
 void Co2Menu::onSensorValue(int value)
 {
-	// Serial.print("Co2 value: ");
-	// Serial.println(value);
+	Serial.print("Co2 value: ");
+	Serial.println(value);
 	values.push_back(value);
 	setDirty(true);
+	*(char *)0 = 0;
 }

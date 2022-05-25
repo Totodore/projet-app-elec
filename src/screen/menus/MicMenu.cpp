@@ -30,8 +30,8 @@ void MicMenu::onPot(int pot, int value)
 }
 void MicMenu::onSensorValue(int value)
 {
-	// Serial.print("Microphone value: ");
-	// Serial.println(value);
+	Serial.print("Microphone value: ");
+	Serial.println(value);
 	values.push_back(value);
 	setDirty(true);
 }

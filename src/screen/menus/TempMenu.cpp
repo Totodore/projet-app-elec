@@ -29,8 +29,8 @@ void TempMenu::onPot(int pot, int value)
 }
 void TempMenu::onSensorValue(int value)
 {
-	// Serial.print("Temperature value: ");
-	// Serial.println(value);
+	Serial.print("Temperature value: ");
+	Serial.println(value);
 	values.push_back(value);
 	setDirty(true);
 }
