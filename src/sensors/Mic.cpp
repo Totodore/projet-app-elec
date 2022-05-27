@@ -36,7 +36,7 @@ void Mic::loop()
 		counter = low_average = high_average = 0;
 	}
 
-	if (millis() - last_print_time > print_interval)
+	if (millis() - last_print_time > print_interval && isShown())
 	{
 		last_print_time = millis();
 		values.push_back(value);

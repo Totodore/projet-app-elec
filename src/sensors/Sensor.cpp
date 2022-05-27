@@ -10,3 +10,8 @@ int Sensor::getNewValue()
 	values.erase(values.begin());
 	return val;
 }
+
+bool Sensor::isShown()
+{
+	return values.size() < 2;
+}

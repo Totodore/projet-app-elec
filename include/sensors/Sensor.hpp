@@ -6,6 +6,7 @@ class Sensor
 {
 public:
 	bool hasNewValue();
+	bool isShown();
 	int getNewValue();
 
 protected:

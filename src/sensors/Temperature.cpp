@@ -11,8 +11,9 @@ void Temperature::init()
 }
 void Temperature::loop()
 {
-	if (millis() - last_print_time > print_interval)
+	if (millis() - last_print_time > print_interval && isShown())
 	{
+		last_print_time = millis();
 		values.push_back(dht.readTemperature() - 3);
 		humidityValues.push_back(dht.readHumidity());
 	}
