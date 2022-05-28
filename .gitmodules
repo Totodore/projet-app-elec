@@ -1,3 +1,6 @@
 [submodule ".\\lib\\co2-lib"]
 	path = .\\lib\\co2-lib
 	url = https://github.com/HGrabas/MICS-VZ-89TE
+[submodule "matlab/pb1/AudioFile"]
+	path = matlab/pb1/AudioFile
+	url = https://github.com/adamstark/AudioFile
