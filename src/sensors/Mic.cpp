@@ -8,7 +8,6 @@ void Mic::init()
 }
 void Mic::loop()
 {
-	digitalWrite(14, HIGH);
 
 	double tension = ((analogRead(pin) - 2048) * 3.3) / 4096;
 	if (tension < 0)

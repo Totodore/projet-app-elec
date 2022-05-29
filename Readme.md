@@ -1,5 +1,10 @@
 # Projet d'électronique réalisé en groupe de 6
 
+## Structure du repository
+- matlab : Problèmes matlab + Implémentation en C++ Windows / Mac / Linux
+- src : Fichier code source C++ TIVA
+- include : Fichier headre C++ TIVA
+- lib : Bibliothèques C++ utilisées
 ## Carte électronique contenant :
 - Un ensemble de capteurs (CO2, Température, Humidité, Sonore)
 - Un écran et des potentiomètres pour naviguer

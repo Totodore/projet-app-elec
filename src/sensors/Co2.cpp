@@ -48,7 +48,7 @@ void Co2::loop()
 		is_high = false;
 	}
 	// Every to sec we send the mean value
-	if (millis() - last_time >= interval && isShown())
+	if (millis() - last_time >= interval)
 	{
 		last_time = millis();
 		values.push_back(ppm);
