@@ -33,7 +33,6 @@ void setup()
 
 void loop()
 {
-
-	for (auto worker : workers)
+	for (auto &worker : workers)
 		worker->loop();
 }

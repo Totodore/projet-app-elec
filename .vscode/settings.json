@@ -33,6 +33,10 @@
 		"utility": "cpp",
 		"typeinfo": "cpp",
 		"deque": "cpp",
-		"numeric": "cpp"
+		"numeric": "cpp",
+		"cassert": "cpp",
+		"cstring": "cpp",
+		"iterator": "cpp",
+		"algorithm": "cpp"
 	}
 }
