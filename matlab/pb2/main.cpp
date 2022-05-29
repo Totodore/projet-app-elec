@@ -82,12 +82,13 @@ int main(int argc, char *argv[])
 		}
 	}
 	double delta = 0;
-	for (int i = 0; i < peaks.size(); i++) {
+	for (int i = 0; i < peaks.size(); i++)
+	{
 		if (i > peaks.size() - 2)
 			continue;
 		delta += (double)(peaks[i + 1] - peaks[i]);
 		delta /= 2;
 	}
-	std::cout << "Frequence cardiaque: " << (double)(60 / (double) (delta / FS)) << " bpm" << std::endl;
+	std::cout << "Frequence cardiaque: " << (double)(60 / (double)(delta / FS)) << " bpm" << std::endl;
 	return 0;
 }
